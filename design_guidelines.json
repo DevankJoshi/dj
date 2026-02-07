@@ -1,0 +1,136 @@
+{
+  "brand_identity": {
+    "name": "RoadSentinel AI",
+    "description": "Professional Road Infrastructure Monitoring System",
+    "archetype": "The Performance Pro",
+    "emotional_tone": "Tactical, Precise, Vigilant, High-Tech",
+    "visual_style": "Dark Mode Surveillance, High Contrast, Data-Dense"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Chivo, sans-serif",
+      "body": "Inter, sans-serif",
+      "data": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl font-bold tracking-tight uppercase",
+      "h2": "text-2xl font-semibold tracking-tight",
+      "h3": "text-xl font-medium tracking-normal",
+      "body": "text-sm leading-relaxed text-slate-400",
+      "label": "text-xs font-bold uppercase tracking-wider text-slate-500",
+      "data_large": "text-3xl font-mono font-bold tracking-tighter",
+      "data_small": "text-sm font-mono text-slate-300"
+    },
+    "installation": "Import Google Fonts: Chivo (400, 700, 900), Inter (variable), JetBrains Mono (variable)"
+  },
+  "colors": {
+    "theme": "dark",
+    "palette": {
+      "background": {
+        "app": "#020617",
+        "surface": "#0F172A",
+        "surface_highlight": "#1E293B"
+      },
+      "text": {
+        "primary": "#F8FAFC",
+        "secondary": "#94A3B8",
+        "muted": "#475569"
+      },
+      "border": {
+        "default": "#1E293B",
+        "active": "#38BDF8"
+      },
+      "accents": {
+        "primary": "#38BDF8",
+        "pothole": "#EF4444",
+        "billboard": "#22D3EE",
+        "barrier": "#F59E0B",
+        "safe": "#10B981"
+      }
+    },
+    "usage_rules": {
+      "backgrounds": "Use 'bg-slate-950' for main app background. Use 'bg-slate-900/50' with 'backdrop-blur-sm' for panels.",
+      "borders": "Use 'border-slate-800' for structural borders. Use 'border-cyan-500/30' for active elements.",
+      "gradients": "Avoid full gradients. Use subtle radial gradients 'bg-gradient-radial' for 'glow' effects behind key metrics.",
+      "shadows": "Use 'shadow-lg' or 'shadow-cyan-900/20' for elevation. No soft gray shadows."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-sm uppercase tracking-wide text-xs h-9 px-4 transition-all hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]",
+      "secondary": "bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-sm uppercase tracking-wide text-xs h-9 px-4",
+      "destructive": "bg-red-900/50 border border-red-500/50 text-red-200 hover:bg-red-900/80 rounded-sm"
+    },
+    "cards": {
+      "base": "bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-md overflow-hidden",
+      "hover": "hover:border-slate-700 transition-colors duration-200"
+    },
+    "inputs": {
+      "base": "bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 rounded-sm text-sm placeholder:text-slate-600"
+    }
+  },
+  "layout_strategies": {
+    "dashboard_grid": {
+      "type": "bento",
+      "className": "grid grid-cols-1 md:grid-cols-12 gap-4 p-4",
+      "areas": {
+        "feeds": "col-span-12 lg:col-span-9 row-span-2",
+        "stats": "col-span-12 lg:col-span-3 row-span-1",
+        "history": "col-span-12 lg:col-span-9",
+        "map": "col-span-12 lg:col-span-3"
+      }
+    },
+    "spacing": {
+      "container": "p-4 md:p-6",
+      "gap": "gap-4 md:gap-6",
+      "section_header": "mb-4"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-md bg-slate-900/70 border-white/5",
+    "tech_lines": "Add 1px border lines to separate sections, reminiscent of HUD interfaces.",
+    "scanlines": "Optional: Overlay a subtle repeating linear gradient to simulate CRT scanlines on video feeds: 'bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))]' (use sparingly or just a simple repeating-linear-gradient).",
+    "status_indicators": "Use 'animate-pulse' for 'Live' recording dots."
+  },
+  "image_assets": {
+    "placeholders": [
+      {
+        "category": "road_surface",
+        "url": "https://images.unsplash.com/photo-1603999703976-8439bd798042",
+        "alt": "Asphalt road surface with wear"
+      },
+      {
+        "category": "barrier",
+        "url": "https://images.unsplash.com/photo-1580445906908-607bf4f552bc",
+        "alt": "Metal crash barrier"
+      },
+      {
+        "category": "pothole_generic",
+        "url": "https://images.unsplash.com/photo-1595334259698-eb00258b62a1",
+        "alt": "Damaged road texture"
+      }
+    ]
+  },
+  "libraries": {
+    "charts": "recharts",
+    "maps": "react-map-gl (Mapbox) or leaflet (react-leaflet). Prefer Leaflet for simplicity if no API key.",
+    "icons": "lucide-react (AlertTriangle, Activity, Camera, MapPin, LayoutDashboard, History, Settings)",
+    "animations": "framer-motion"
+  },
+  "instructions_to_main_agent": [
+    "1. IMPLEMENT DARK MODE ONLY. This is a surveillance tool. Do not create a light mode toggle.",
+    "2. THEME: 'Tactical HUD'. Use sharp corners (rounded-sm or rounded-md), no rounded-full buttons.",
+    "3. VIDEO GRID: This is the core feature. Create a 'Grid' component that can handle dynamic number of feeds (1x1, 2x2, 3x3).",
+    "4. MAP: Use a dark tile layer for the map (e.g., CartoDB Dark Matter).",
+    "5. ALERTS: Critical alerts (Potholes) must 'pop' with Red accents. Info alerts (Billboards) should be Cyan.",
+    "6. PLACEHOLDERS: Use the provided Unsplash images to simulate camera feeds if no real stream is available. Overlay 'CAM-01', 'LIVE', 'REC' text on them.",
+    "7. FONT: Import 'Chivo' and 'JetBrains Mono' in index.css using @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');"
+  ],
+  "UNIVERSAL_GUIDELINES": [
+    "Do not use generic 'Inter' for headings. Use 'Chivo'.",
+    "Do not use gradients for backgrounds. Use solid deep slate colors.",
+    "All interactive elements must have 'data-testid'.",
+    "Use 'sonner' for notifications.",
+    "Do not ask clarifying questions. Make executive design decisions based on this file."
+  ]
+}
